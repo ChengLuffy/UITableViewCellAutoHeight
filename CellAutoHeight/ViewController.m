@@ -31,7 +31,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"AutoHeightCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    if (IOS_VERSION_8_OR_ABOVE) {
+    if (1) {
         self.tableView.estimatedRowHeight = 44.0f;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
@@ -63,7 +63,7 @@
     CGFloat height1 = [str1 boundingRectWithSize:CGSizeMake(kScreenWidth - 8, 99999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]} context:nil].size.height;
     CGFloat height2 = [str2 boundingRectWithSize:CGSizeMake(kScreenWidth - 8, 99999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]} context:nil].size.height;
     
-    return height1 + height2 + 145 - 16 * 2;
+    return height1 + height2 + 145 - 16 * 1;
 }
 #endif
 

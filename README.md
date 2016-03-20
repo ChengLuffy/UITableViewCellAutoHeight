@@ -26,7 +26,7 @@ self.dataSource = @[@"The first step to creating a fancy animation was creating 
 其中`CGSizeMake(kScreenWidth - 8, 99999) `部分`width`参数屈居于`cell`中的`label`距离`cell.contentView`边缘距离，需要注意的是，如果我们用`xib`做约束
 ![2.png](http://upload-images.jianshu.io/upload_images/1251095-faad6652b77954d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)`Constrain to margins`打上对勾时默认距离变远8像素，然后` return height1 + height2 + 145 - 16 * 2;`中145室xib中`cell`的高度，16是`label`在不加高度约束时的默认高度，这样就完成了。
 运行出来就是我们想要的结果
-![3.PNG](http://upload-images.jianshu.io/upload_images/1251095-f03273a4dea7f097.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![IMG_0026.PNG](http://upload-images.jianshu.io/upload_images/1251095-15b61b5398a9fc86.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - # 只兼容兼容iOS8之后的版本
 主要方法：

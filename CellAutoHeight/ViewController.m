@@ -31,8 +31,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"AutoHeightCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    self.tableView.estimatedRowHeight = kScreenHeight;
     if (1) {
-        self.tableView.estimatedRowHeight = 44.0f;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
     [self.view addSubview:self.tableView];
@@ -44,11 +44,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return 10000;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AutoHeightCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    AutoHeightCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.labe1.text = self.dataSource[0];
     cell.label2.text = self.dataSource[1];
     return cell;
@@ -56,6 +56,7 @@
 
 #if 0
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"高度计算");
     
     NSString *str1 = self.dataSource[0];
     NSString *str2 = self.dataSource[1];
@@ -63,7 +64,7 @@
     CGFloat height1 = [str1 boundingRectWithSize:CGSizeMake(kScreenWidth - 8, 99999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]} context:nil].size.height;
     CGFloat height2 = [str2 boundingRectWithSize:CGSizeMake(kScreenWidth - 8, 99999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]} context:nil].size.height;
     
-    return height1 + height2 + 145 - 16 * 1;
+    return height1 + height2 + 145 - 16 * 2 + 2;
 }
 #endif
 

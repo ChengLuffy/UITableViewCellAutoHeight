@@ -2,7 +2,9 @@
 关于UITableViewCell加载字符串时高度自适应的demo
 `UITableView`，在使用当中经常会遇到一些根据数据源动态调节`cell`的高度，这种情况在 `cell`上加载文字信息尤为常见，这里我总结两种自己经常用的方法。
 
-- # 兼容iOS8之前版本
+- 3.31更新：无论哪种方法加上`self.tableView.estimatedRowHeight = kScreenHeight;`的运行效率更高。可以减少计算量。内存黑CPU在多（测试时用了1000。。。）`row`下都有下降
+
+# 兼容iOS8之前版本
  主要方法： 
 ```- (CGRect)boundingRectWithSize:(CGSize)size options:(NSStringDrawingOptions)options attributes:(nullable NSDictionary<NSString *, id> *)attributes context:(nullable NSStringDrawingContext *)context NS_AVAILABLE(10_11, 7_0);```
 `NSString`的对象方法，可以计算字符串在`UILable`固定宽度、固定字体大小下所需的`size`，返回值是`CGRect`类型，但我们一般只需要高度就可以了。
@@ -28,7 +30,7 @@ self.dataSource = @[@"The first step to creating a fancy animation was creating 
 运行出来就是我们想要的结果
 ![IMG_0026.PNG](http://upload-images.jianshu.io/upload_images/1251095-15b61b5398a9fc86.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-- # 只兼容兼容iOS8之后的版本
+# 只兼容兼容iOS8之后的版本
 主要方法：
 ```
 self.tableView.estimatedRowHeight = 44.0f;
